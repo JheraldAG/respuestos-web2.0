@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro | RespuestosWeb</title>
+    <link rel="stylesheet" href="css/particulasfondo.css">
+    <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Botón Atrás -->
+    <a href="javascript:history.back()" class="back-button">
+        <i class="fas fa-arrow-left"></i> Atrás
+    </a>
+
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h1><i class="fas fa-user-plus"></i> Crear una cuenta</h1>
+                <p>Ingresa tus datos para registrarte en RespuestosWeb</p>
+            </div>
+
+            <!-- FORMULARIO DE REGISTRO -->
+            <form id="registrationForm">
+                <!-- Nombre completo -->
+                <div class="form-group">
+                    <label for="fullName"><i class="fas fa-user"></i> Nombre completo</label>
+                    <input type="text" id="fullName" placeholder="Ej: Juan Pérez" required>
+                    <div class="error-message" id="fullNameError"></div>
+                    <div class="hint">Ingresa tu nombre y apellido</div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Correo electrónico</label>
+                    <input type="email" id="email" placeholder="ejemplo@correo.com" required>
+                    <div class="error-message" id="emailError"></div>
+                    <div class="hint">Usaremos este email para contactarte</div>
+                </div>
+
+                <!-- Teléfono -->
+                <div class="form-group">
+                    <label for="phone"><i class="fas fa-phone"></i> Teléfono</label>
+                    <input type="tel" id="phone" placeholder="00000000" required>
+                    <div class="error-message" id="phoneError"></div>
+                    <div class="hint">Incluye código de país y área</div>
+                </div>
+
+                <!-- Dirección -->
+                <div class="form-group">
+                    <label for="address"><i class="fas fa-home"></i> Dirección</label>
+                    <textarea id="address" placeholder="Calle, número, ciudad" rows="2"></textarea>
+                    <div class="error-message" id="addressError"></div>
+                    <div class="hint">Para envíos de productos</div>
+                </div>
+
+                <!-- Contraseña -->
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-lock"></i> Contraseña</label>
+                    <div class="password-container">
+                        <input type="password" id="password" placeholder="Crea una contraseña segura" required>
+                        <button type="button" class="show-password" id="showPassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+
+                    <!-- Indicador de fortaleza de contraseña -->
+                    <div class="password-strength-container">
+                        <div class="password-strength">
+                            <div class="strength-bar" id="strengthBar1"></div>
+                            <div class="strength-bar" id="strengthBar2"></div>
+                            <div class="strength-bar" id="strengthBar3"></div>
+                            <div class="strength-bar" id="strengthBar4"></div>
+                        </div>
+                        <div class="strength-text" id="strengthText">Seguridad: Muy débil</div>
+                    </div>
+
+                    <!-- Requisitos de contraseña -->
+                    <div class="password-requirements">
+                        <p>La contraseña debe incluir:</p>
+                        <ul>
+                            <li id="reqLength"><i class="fas fa-circle"></i> Mínimo 8 caracteres</li>
+                            <li id="reqUppercase"><i class="fas fa-circle"></i> Al menos una mayúscula</li>
+                            <li id="reqLowercase"><i class="fas fa-circle"></i> Al menos una minúscula</li>
+                            <li id="reqNumber"><i class="fas fa-circle"></i> Al menos un número</li>
+                            <li id="reqSpecial"><i class="fas fa-circle"></i> Al menos un carácter especial (!@#$%^&*)</li>
+                        </ul>
+                    </div>
+
+                    <div class="error-message" id="passwordError"></div>
+                </div>
+
+                <!-- Confirmar contraseña -->
+                <div class="form-group">
+                    <label for="confirmPassword"><i class="fas fa-lock"></i> Confirmar contraseña</label>
+                    <div class="password-container">
+                        <input type="password" id="confirmPassword" placeholder="Repite tu contraseña" required>
+                        <button type="button" class="show-password" id="showConfirmPassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="error-message" id="confirmPasswordError"></div>
+                </div>
+
+                <!-- Términos y condiciones -->
+                <div class="terms">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">
+                        <span>Acepto los <a href="#" target="_blank">términos y condiciones</a> y la <a href="#" target="_blank">política de privacidad</a></span>
+                        <span class="required">*</span>
+                    </label>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="terms">
+                    <input type="checkbox" id="newsletter">
+                    <label for="newsletter">
+                        <span>Deseo recibir ofertas especiales y novedades por correo electrónico</span>
+                    </label>
+                </div>
+
+                <!-- Botón de registro -->
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <i class="fas fa-user-plus"></i> Crear cuenta
+                    </button>
+                </div>
+            </form>
+
+            <!-- MENSAJE DE ÉXITO (DEBE ESTAR PRESENTE) -->
+            <div class="success-message" id="successMessage" style="display: none;">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>¡Registro completado!</h2>
+                <p>Tu cuenta ha sido creada exitosamente. Ya puedes iniciar sesión.</p>
+                <div class="user-data">
+                    <p><strong>Nombre:</strong> <span id="registeredName"></span></p>
+                    <p><strong>Email:</strong> <span id="registeredEmail"></span></p>
+                </div>
+                <div class="success-actions">
+                    <button class="submit-btn" onclick="window.location.href='sesion.html'">
+                        <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                    </button>
+                    <button class="secondary-btn" onclick="resetForm()">
+                        <i class="fas fa-plus"></i> Crear otra cuenta
+                    </button>
+                </div>
+            </div>
+
+            <!-- Enlace a login -->
+            <div class="login-link">
+                ¿Ya tienes una cuenta? <a href="sesion.html">Inicia sesión aquí</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/particulasfondo.js"></script>
+    <!-- CARGAR registro.js CORREGIDO -->
+    <script src="js/registro.js"></script>
+    
+</body>
+
+</html>

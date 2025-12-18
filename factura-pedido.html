@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura y Pago | RespuestosWeb</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/particulasfondo.css">
+    <link rel="stylesheet" href="css/factura.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Botón Atrás -->
+    <a href="carrito.html" class="back-button factura-back">
+        <i class="fas fa-arrow-left"></i> Volver al Carrito
+    </a>
+
+    <!-- Contenedor Principal -->
+    <main class="factura-container">
+        <!-- Encabezado -->
+        <header class="factura-header">
+            <h1><i class="fas fa-receipt"></i> Factura del Pedido</h1>
+            <div class="pedido-info">
+                <span class="pedido-numero">Pedido #<span id="numeroPedido">PED-000000</span></span>
+                <span class="pedido-fecha" id="fechaPedido"></span>
+            </div>
+        </header>
+
+        <!-- Secciones principales -->
+        <div class="factura-grid">
+            <!-- Panel izquierdo: Detalles del pedido -->
+            <section class="detalles-pedido">
+                <h2><i class="fas fa-boxes"></i> Detalles del Pedido</h2>
+                
+                <!-- Información del cliente -->
+                <div class="info-cliente">
+                    <h3><i class="fas fa-user"></i> Información del Cliente</h3>
+                    <div class="cliente-datos">
+                        <p><strong>Nombre:</strong> <span id="clienteNombre"></span></p>
+                        <p><strong>Email:</strong> <span id="clienteEmail"></span></p>
+                        <p><strong>Teléfono:</strong> <span id="clienteTelefono"></span></p>
+                        <p><strong>Dirección:</strong> <span id="clienteDireccion"></span></p>
+                    </div>
+                </div>
+
+                <!-- Productos -->
+                <div class="productos-factura">
+                    <h3><i class="fas fa-shopping-cart"></i> Productos</h3>
+                    <div class="productos-lista" id="productosLista">
+                        <!-- Productos cargados dinámicamente -->
+                    </div>
+                </div>
+
+                <!-- Resumen de compra -->
+                <div class="resumen-factura">
+                    <h3><i class="fas fa-calculator"></i> Resumen</h3>
+                    <div class="resumen-detalles">
+                        <div class="resumen-fila">
+                            <span>Subtotal:</span>
+                            <span id="facturaSubtotal">$0.00</span>
+                        </div>
+                        <div class="resumen-fila descuento-fila" style="display: none;">
+                            <span>Descuento (10%):</span>
+                            <span id="facturaDescuento" style="color: #27ae60;">-$0.00</span>
+                        </div>
+                        <div class="resumen-fila envio-fila">
+                            <span><i class="fas fa-shipping-fast"></i> Envío:</span>
+                            <span style="color: #27ae60; font-weight: bold;">GRATIS</span>
+                        </div>
+                        <div class="resumen-fila total-fila">
+                            <span><strong>TOTAL A PAGAR:</strong></span>
+                            <span id="facturaTotal"><strong>$0.00</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Panel derecho: Métodos de pago -->
+            <section class="metodos-pago">
+                <h2><i class="fas fa-credit-card"></i> Métodos de Pago</h2>
+                
+                <!-- Tarjeta de crédito/débito -->
+                <div class="metodo-pago" id="tarjetaMetodo">
+                    <div class="metodo-header">
+                        <i class="fas fa-credit-card"></i>
+                        <h3>Tarjeta de Crédito/Débito</h3>
+                        <label class="switch">
+                            <input type="radio" name="metodoPago" value="tarjeta" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="metodo-contenido active">
+                        <div class="tarjeta-form">
+                            <div class="form-group">
+                                <label for="tarjetaNumero"><i class="far fa-credit-card"></i> Número de Tarjeta</label>
+                                <input type="text" id="tarjetaNumero" placeholder="1234 5678 9012 3456" maxlength="19">
+                            </div>
+                            
+                            <div class="tarjeta-doble">
+                                <div class="form-group">
+                                    <label for="tarjetaVencimiento"><i class="far fa-calendar-alt"></i> Vencimiento (MM/AA)</label>
+                                    <input type="text" id="tarjetaVencimiento" placeholder="MM/AA" maxlength="5">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="tarjetaCVV"><i class="fas fa-lock"></i> CVV</label>
+                                    <input type="password" id="tarjetaCVV" placeholder="123" maxlength="4">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="tarjetaNombre"><i class="fas fa-user"></i> Nombre en la Tarjeta</label>
+                                <input type="text" id="tarjetaNombre" placeholder="JUAN PEREZ">
+                            </div>
+                            
+                            <div class="tarjetas-aceptadas">
+                                <p><i class="fas fa-check-circle"></i> Tarjetas aceptadas:</p>
+                                <div class="tarjetas-iconos">
+                                    <i class="fab fa-cc-visa" title="Visa"></i>
+                                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                                    <i class="fab fa-cc-amex" title="American Express"></i>
+                                    <i class="fab fa-cc-diners-club" title="Diners Club"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pago QR -->
+                <div class="metodo-pago" id="qrMetodo">
+                    <div class="metodo-header">
+                        <i class="fas fa-qrcode"></i>
+                        <h3>Pago con QR</h3>
+                        <label class="switch">
+                            <input type="radio" name="metodoPago" value="qr">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="metodo-contenido">
+                        <div class="qr-contenido">
+                            <div class="qr-imagen">
+                                <!-- QR generado dinámicamente -->
+                                <div id="qrCode"></div>
+                                <p class="qr-instructions">
+                                    <i class="fas fa-mobile-alt"></i> Escanea este código con tu app de banca móvil
+                                </p>
+                            </div>
+                            
+                            <div class="qr-info">
+                                <h4><i class="fas fa-info-circle"></i> Instrucciones para pago QR:</h4>
+                                <ol>
+                                    <li>Abre la app de tu banco móvil</li>
+                                    <li>Selecciona "Pagar con QR"</li>
+                                    <li>Escanea el código QR</li>
+                                    <li>Confirma el monto y realiza el pago</li>
+                                    <li>Guarda el comprobante de pago</li>
+                                </ol>
+                                
+                                <div class="qr-bancos">
+                                    <p><strong>Bancos compatibles:</strong></p>
+                                    <div class="bancos-lista">
+                                        <span>Banco Nacional</span>
+                                        <span>Banco BISA</span>
+                                        <span>Banco Unión</span>
+                                        <span>Banco Mercantil</span>
+                                        <span>Banco Fassil</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botón para finalizar -->
+                <div class="factura-acciones">
+                    <button class="btn-secundario" onclick="window.location.href='carrito.html'">
+                        <i class="fas fa-shopping-cart"></i> Agregar más productos
+                    </button>
+                    
+                    <button class="btn-principal" id="btnFinalizarCompra">
+                        <i class="fas fa-check-circle"></i> Finalizar Pedido
+                    </button>
+                </div>
+
+                <!-- Seguridad -->
+                <div class="factura-seguridad">
+                    <p><i class="fas fa-shield-alt"></i> <strong>Pago 100% seguro</strong></p>
+                    <p class="seguridad-info">
+                        Tus datos están protegidos con encriptación SSL de 256-bit. 
+                        No almacenamos información de tu tarjeta.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal de procesamiento -->
+    <div class="modal-procesando" id="modalProcesando">
+        <div class="modal-contenido">
+            <div class="procesando-header">
+                <h2><i class="fas fa-motorcycle"></i> Procesando tu Pedido</h2>
+                <p>Por favor no cierres esta ventana...</p>
+            </div>
+            
+            <div class="procesando-animacion">
+                <div class="carretera">
+                    <div class="moto-animada" id="motoAnimada">
+                        <i class="fas fa-motorcycle"></i>
+                    </div>
+                    <div class="lineas-carretera"></div>
+                </div>
+                <div class="progreso-container">
+                    <div class="progreso-bar" id="progresoBar"></div>
+                </div>
+                <div class="progreso-texto" id="progresoTexto">Iniciando procesamiento...</div>
+            </div>
+            
+            <div class="procesando-info">
+                <p><i class="fas fa-sync-alt fa-spin"></i> Preparando tu factura...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/factura.js"></script>
+    <script src="js/particulasfondo.js"></script>
+    <!-- Biblioteca para QR -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+</body>
+</html>

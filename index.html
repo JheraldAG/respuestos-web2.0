@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/particulasfondo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>RespuestosWeb - Inicio</title>
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <!-- Menú de navegación -->
+            <div class="navbar-logo">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-icon">⚙️</span>
+                    <span class="logo-text">RespuestosWeb</span>
+                </a>
+            </div>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="repuestos.html" class="nav-link">Repuestos</a></li>
+                <li><a href="accesorios.html" class="nav-link">Accesorios</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+            <!-- Botones de acción -->
+            <div class="navbar-actions" id="navbarActions">
+                <div class="cart-icon-container">
+                    <a href="carrito.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </div>
+                <!-- Esto se mostrará cuando NO haya sesión iniciada -->
+                <div class="auth-buttons" id="authButtons">
+                    <button class="btn btn-login" onclick="window.location.href='sesion.html'">Iniciar Sesión</button>
+                    <button class="btn btn-signup" onclick="window.location.href='registro.html'">Registrarse</button>
+                </div>
+                <!-- Esto se mostrará cuando HAYA sesión iniciada -->
+                <div class="user-info" id="userInfo" style="display: none;">
+                    <span class="user-name" id="userName"></span>
+                    <button class="btn btn-logout" id="btnLogout">
+                        <span class="logout-icon">🚪</span>
+                        Exit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal Mejorado -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Repuestos Originales</span><br>
+                    para tu Moto
+                </h1>
+                <p class="hero-subtitle">
+                    Encuentra los repuestos originales para todas las marcas de motos.<br>
+                    Calidad garantizada, envío rápido y el mejor precio del mercado.
+                </p>
+                <div class="hero-buttons">
+                    <a href="repuestos.html" class="hero-btn">
+                        <i class="fas fa-motorcycle"></i>
+                        Ver Catálogo
+                    </a>
+                    <a href="accesorios.html" class="hero-btn secondary">
+                        <i class="fas fa-star"></i>
+                        Ver Accesorios
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Características -->
+        <section class="features-section">
+            <h2>¿Por qué elegirnos?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Envío Gratis</h3>
+                    <p>En todas las compras superiores a $50</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Calidad Garantizada</h3>
+                    <p>Repuestos 100% originales</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Entrega Rápida</h3>
+                    <p>Recibe en 24-48 horas</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Pago Seguro</h3>
+                    <p>Múltiples métodos de pago</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marcas -->
+        <section class="brands-section">
+            <h2>Marcas que trabajamos</h2>
+            <div class="brands-grid">
+                <div class="brand-item">
+                    <i class="fas fa-biking"></i>
+                    <span>BMW</span>
+                </div>
+                <div class="brand-item">
+                    <i class="fas fa-motorcycle"></i>
+                    <span>Honda</span>
+                </div>
+                <div class="brand-item">
+                    <i class="fas fa-biking"></i>
+                    <span>Yamaha</span>
+                </div>
+                <div class="brand-item">
+                    <i class="fas fa-motorcycle"></i>
+                    <span>Suzuki</span>
+                </div>
+                <div class="brand-item">
+                    <i class="fas fa-biking"></i>
+                    <span>Kawasaki</span>
+                </div>
+                <div class="brand-item">
+                    <i class="fas fa-motorcycle"></i>
+                    <span>Ducati</span>
+                </div>
+                <div class="brand-item">
+                    <i class="fas fa-biking"></i>
+                    <span>KTM</span>
+                </div>
+                <div class="brand-item">
+                    <i class="fas fa-motorcycle"></i>
+                    <span>Harley</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>RespuestosWeb</h3>
+                <p>Tu tienda confiable de repuestos para motos</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-phone"></i> +591 78570322</p>
+                <p><i class="fas fa-envelope"></i> wgarridomontano@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <a href="repuestos.html">Repuestos</a>
+                <a href="accesorios.html">Accesorios</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+        </div>
+        <p class="footer-copyright">&copy; 2025 RespuestosWeb. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/particulasfondo.js"></script>
+    <script src="js/cart-global.js"></script>
+    <script src="js/auth-check.js"></script>
+    <script src="js/session-manager.js"></script>
+    <script src="js/index-content.js"></script>
+    
+</body>
+
+
+</html>

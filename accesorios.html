@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesorios para Motos | RespuestosWeb</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/particulasfondo.css">
+    <link rel="stylesheet" href="css/accesorios.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <!-- Menú de navegación -->
+            <div class="navbar-logo">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-icon">⚙️</span>
+                    <span class="logo-text">RespuestosWeb</span>
+                </a>
+            </div>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="repuestos.html" class="nav-link">Repuestos</a></li>
+                <li><a href="accesorios.html" class="nav-link active">Accesorios</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+            <!-- Botones de acción -->
+            <div class="navbar-actions" id="navbarActions">
+                <div class="cart-icon-container">
+                    <a href="carrito.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </div>
+                <!-- Esto se mostrará cuando NO haya sesión iniciada -->
+                <div class="auth-buttons" id="authButtons">
+                    <button class="btn btn-login" onclick="window.location.href='sesion.html'">Iniciar Sesión</button>
+                    <button class="btn btn-signup" onclick="window.location.href='registro.html'">Registrarse</button>
+                </div>
+                <!-- Esto se mostrará cuando HAYA sesión iniciada -->
+                <div class="user-info" id="userInfo" style="display: none;">
+                    <span class="user-name" id="userName"></span>
+                    <button class="btn btn-logout" id="btnLogout">
+                        <span class="logout-icon">🚪</span>
+                        Exit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="accesorios-container">
+        <div class="accesorios-header">
+            <h1 class="accesorios-title">
+                <i class="fas fa-star"></i>
+                Accesorios para Motos
+            </h1>
+            <p class="accesorios-subtitle">Mejora el rendimiento y estilo de tu moto con nuestros accesorios premium</p>
+        </div>
+        
+        <!-- Filtros por categoría -->
+        <section class="categorias-filtros">
+            <h2>Selecciona una categoría</h2>
+            <div class="filtros-container">
+                <button class="filtro-btn active" data-categoria="todos">Todos</button>
+                <button class="filtro-btn" data-categoria="seguridad">Seguridad</button>
+                <button class="filtro-btn" data-categoria="confort">Confort</button>
+                <button class="filtro-btn" data-categoria="estetica">Estética</button>
+                <button class="filtro-btn" data-categoria="tecnologia">Tecnología</button>
+                <button class="filtro-btn" data-categoria="proteccion">Protección</button>
+            </div>
+        </section>
+
+        <!-- Productos de accesorios -->
+        <section class="accesorios-grid">
+            <!-- Seguridad -->
+            <div class="accesorio-card" data-categoria="seguridad">
+                <div class="accesorio-imagen">
+                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Casco Integral">
+                    <div class="accesorio-overlay">
+                        <button class="quick-view">Vista Rápida</button>
+                    </div>
+                </div>
+                <div class="accesorio-info">
+                    <div class="accesorio-categoria">Seguridad</div>
+                    <h3 class="accesorio-nombre">Casco Integral AGV</h3>
+                    <p class="accesorio-descripcion">Casco integral de fibra de carbono, certificación ECE 22.06</p>
+                    <div class="accesorio-precio">$299.99</div>
+                    <button class="btn-agregar-carrito" data-id="acc001">
+                        <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+
+            <div class="accesorio-card" data-categoria="seguridad">
+                <div class="accesorio-imagen">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Guantes">
+                    <div class="accesorio-overlay">
+                        <button class="quick-view">Vista Rápida</button>
+                    </div>
+                </div>
+                <div class="accesorio-info">
+                    <div class="accesorio-categoria">Seguridad</div>
+                    <h3 class="accesorio-nombre">Guantes de Cuero Dainese</h3>
+                    <p class="accesorio-descripcion">Guantes de protección con refuerzos en nudillos</p>
+                    <div class="accesorio-precio">$89.99</div>
+                    <button class="btn-agregar-carrito" data-id="acc002">
+                        <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+
+            <!-- Confort -->
+            <div class="accesorio-card" data-categoria="confort">
+                <div class="accesorio-imagen">
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Asiento">
+                    <div class="accesorio-overlay">
+                        <button class="quick-view">Vista Rápida</button>
+                    </div>
+                </div>
+                <div class="accesorio-info">
+                    <div class="accesorio-categoria">Confort</div>
+                    <h3 class="accesorio-nombre">Asiento Gel Comfort</h3>
+                    <p class="accesorio-descripcion">Asiento con gel memory para viajes largos</p>
+                    <div class="accesorio-precio">$149.99</div>
+                    <button class="btn-agregar-carrito" data-id="acc003">
+                        <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+
+            <div class="accesorio-card" data-categoria="confort">
+                <div class="accesorio-imagen">
+                    <img src="https://images.unsplash.com/photo-1543373014-cfe4f4bc1cdf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Maletero">
+                    <div class="accesorio-overlay">
+                        <button class="quick-view">Vista Rápida</button>
+                    </div>
+                </div>
+                <div class="accesorio-info">
+                    <div class="accesorio-categoria">Confort</div>
+                    <h3 class="accesorio-nombre">Maletero Trasero 45L</h3>
+                    <p class="accesorio-descripcion">Maletero impermeable con sistema de cierre rápido</p>
+                    <div class="accesorio-precio">$129.99</div>
+                    <button class="btn-agregar-carrito" data-id="acc004">
+                        <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+
+            <!-- Estética -->
+            <div class="accesorio-card" data-categoria="estetica">
+                <div class="accesorio-imagen">
+                    <img src="https://images.unsplash.com/photo-1617298531024-d9a034965e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Vinilos">
+                    <div class="accesorio-overlay">
+                        <button class="quick-view">Vista Rápida</button>
+                    </div>
+                </div>
+                <div class="accesorio-info">
+                    <div class="accesorio-categoria">Estética</div>
+                    <h3 class="accesorio-nombre">Kit Vinilos Racing</h3>
+                    <p class="accesorio-descripcion">Vinilos de alta calidad resistentes al agua y UV</p>
+                    <div class="accesorio-precio">$49.99</div>
+                    <button class="btn-agregar-carrito" data-id="acc005">
+                        <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tecnología -->
+            <div class="accesorio-card" data-categoria="tecnologia">
+                <div class="accesorio-imagen">
+                    <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="GPS">
+                    <div class="accesorio-overlay">
+                        <button class="quick-view">Vista Rápida</button>
+                    </div>
+                </div>
+                <div class="accesorio-info">
+                    <div class="accesorio-categoria">Tecnología</div>
+                    <h3 class="accesorio-nombre">Navegador GPS Moto</h3>
+                    <p class="accesorio-descripcion">GPS resistente al agua con montaje antivibración</p>
+                    <div class="accesorio-precio">$199.99</div>
+                    <button class="btn-agregar-carrito" data-id="acc006">
+                        <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+
+            <!-- Protección -->
+            <div class="accesorio-card" data-categoria="proteccion">
+                <div class="accesorio-imagen">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Cubierta">
+                    <div class="accesorio-overlay">
+                        <button class="quick-view">Vista Rápida</button>
+                    </div>
+                </div>
+                <div class="accesorio-info">
+                    <div class="accesorio-categoria">Protección</div>
+                    <h3 class="accesorio-nombre">Cubierta Impermeable</h3>
+                    <p class="accesorio-descripcion">Cubierta para moto resistente a rayos UV y agua</p>
+                    <div class="accesorio-precio">$59.99</div>
+                    <button class="btn-agregar-carrito" data-id="acc007">
+                        <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+
+            <!-- Más productos... -->
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 RespuestosWeb. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/particulasfondo.js"></script>
+    <script src="js/cart-global.js"></script>
+    <script src="js/auth-check.js"></script>
+    <script src="js/session-manager.js"></script>
+    <script src="js/accesorios.js"></script>
+    
+</body>
+
+</html>

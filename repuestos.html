@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repuestos para Motos | RespuestosWeb</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/particulasfondo.css">
+    <link rel="stylesheet" href="css/repuestos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <!-- Menú de navegación -->
+            <div class="navbar-logo">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-icon">⚙️</span>
+                    <span class="logo-text">RespuestosWeb</span>
+                </a>
+            </div>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="repuestos.html" class="nav-link active">Respuestos</a></li>
+                <li><a href="accesorios.html" class="nav-link">Accesorios</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+            <!-- Botones de acción -->
+            <div class="navbar-actions" id="navbarActions">
+                <!-- Carrito de compras -->
+                <div class="cart-icon-container">
+                    <a href="carrito.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </div>
+                
+                <!-- Esto se mostrará cuando NO haya sesión iniciada -->
+                <div class="auth-buttons" id="authButtons">
+                    <button class="btn btn-login" onclick="window.location.href='sesion.html'">Iniciar Sesión</button>
+                    <button class="btn btn-signup" onclick="window.location.href='registro.html'">Registrarse</button>
+                </div>
+                <!-- Esto se mostrará cuando HAYA sesión iniciada -->
+                <div class="user-info" id="userInfo" style="display: none;">
+                    <span class="user-name" id="userName"></span>
+                    <button class="btn btn-logout" id="btnLogout">
+                        <span class="logout-icon">🚪</span>
+                        Exit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="repuestos-container">
+        <!-- Filtros por marca -->
+        <section class="marca-filters">
+            <h2>Selecciona la Marca de tu Moto</h2>
+            <div class="filters-container">
+                <button class="filter-btn active" data-marca="all">Todos</button>
+                <button class="filter-btn" data-marca="bmw">BMW</button>
+                <button class="filter-btn" data-marca="honda">Honda</button>
+                <button class="filter-btn" data-marca="yamaha">Yamaha</button>
+                <button class="filter-btn" data-marca="suzuki">Suzuki</button>
+                <button class="filter-btn" data-marca="kawasaki">Kawasaki</button>
+                <button class="filter-btn" data-marca="ducati">Ducati</button>
+                <button class="filter-btn" data-marca="ktm">KTM</button>
+            </div>
+        </section>
+
+        <!-- Productos BMW -->
+        <section class="marca-section active" id="bmw">
+            <h2 class="marca-title">
+                <i class="fas fa-motorcycle"></i>
+                Repuestos para BMW
+            </h2>
+            <div class="productos-grid">
+                
+                <!-- Motor -->
+                <div class="producto-card" data-categoria="motor">
+                    <div class="producto-imagen-container">
+                        <img src="https://i.ebayimg.com/images/g/hdYAAOSwGIlj2I~U/s-l1600.webp" 
+                             alt="Kit de Embrague BMW" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">BMW</div>
+                        <h3 class="producto-nombre">Kit de Embrague BMW R1250GS</h3>
+                        <p class="producto-descripcion">Kit completo de embrague para modelos R1250GS, incluye discos, placas y resortes.</p>
+                        <div class="producto-precio">$189.99</div>
+                        <button class="btn-agregar-carrito" data-id="bmw001">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="motor">
+                    <div class="producto-imagen-container">
+                        <img src="https://res.cloudinary.com/knfilters-com/image/upload/c_lpad,dpr_2.0,f_auto,h_540,q_auto,w_540/v1/media/catalog/product/K/N/KN-160_4.jpg?_i=AB" 
+                             alt="Filtro de Aceite BMW" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">BMW</div>
+                        <h3 class="producto-nombre">Filtro de Aceite BMW S1000RR</h3>
+                        <p class="producto-descripcion">Filtro de aceite original de alto rendimiento para S1000RR.</p>
+                        <div class="producto-precio">$34.99</div>
+                        <button class="btn-agregar-carrito" data-id="bmw002">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Frenos -->
+                <div class="producto-card" data-categoria="frenos">
+                    <div class="producto-imagen-container">
+                        <img src="https://i.ebayimg.com/images/g/bAkAAOSwcmRlqMo6/s-l1600.webp" 
+                             alt="Pastillas de Freno BMW" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">BMW</div>
+                        <h3 class="producto-nombre">Pastillas de Freno Delanteras BMW</h3>
+                        <p class="producto-descripcion">Pastillas de freno sinterizadas para mejor frenado en condiciones extremas.</p>
+                        <div class="producto-precio">$89.99</div>
+                        <button class="btn-agregar-carrito" data-id="bmw003">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="frenos">
+                    <div class="producto-imagen-container">
+                        <img src="https://i.ebayimg.com/thumbs/images/g/HKcAAeSwe4xpPvAn/s-l300.webp" 
+                             alt="Discos de Freno BMW" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">BMW</div>
+                        <h3 class="producto-nombre">Discos de Freno Traseros BMW</h3>
+                        <p class="producto-descripcion">Discos flotantes de alta calidad para mejor disipación de calor.</p>
+                        <div class="producto-precio">$249.99</div>
+                        <button class="btn-agregar-carrito" data-id="bmw004">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Suspensión -->
+                <div class="producto-card" data-categoria="suspension">
+                    <div class="producto-imagen-container">
+                        <img src="https://i.ebayimg.com/images/g/KG8AAeSwtQhpDiIL/s-l1600.webp" 
+                             alt="Amortiguador BMW" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">BMW</div>
+                        <h3 class="producto-nombre">Amortiguador Trasero BMW GS</h3>
+                        <p class="producto-descripcion">Amortiguador ajustable electrónicamente para aventura.</p>
+                        <div class="producto-precio">$899.99</div>
+                        <button class="btn-agregar-carrito" data-id="bmw005">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Electrónica -->
+                <div class="producto-card" data-categoria="electronica">
+                    <div class="producto-imagen-container">
+                        <img src="https://i.ebayimg.com/images/g/pgMAAOSwFHZnN01C/s-l1600.webp" 
+                             alt="Batería BMW" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">BMW</div>
+                        <h3 class="producto-nombre">Batería Litio BMW</h3>
+                        <p class="producto-descripcion">Batería de litio ultraligera para motos BMW.</p>
+                        <div class="producto-precio">$199.99</div>
+                        <button class="btn-agregar-carrito" data-id="bmw006">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Transmisión -->
+                <div class="producto-card" data-categoria="transmision">
+                    <div class="producto-imagen-container">
+                        <img src="https://i.ebayimg.com/thumbs/images/g/bOwAAOSwZWhnmeZr/s-l300.webp" 
+                             alt="Cadena BMW" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">BMW</div>
+                        <h3 class="producto-nombre">Kit Cadena BMW R NineT</h3>
+                        <p class="producto-descripcion">Kit cadena O-ring con piñón y corona.</p>
+                        <div class="producto-precio">$149.99</div>
+                        <button class="btn-agregar-carrito" data-id="bmw007">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Carrocería -->
+                <div class="producto-card" data-categoria="carroceria">
+                    <div class="producto-imagen-container">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe6MmT3iAKlAqYULqg9RIw2ckWm8wNuphOkQ&s" 
+                             alt="Espejo Retrovisor BMW" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">BMW</div>
+                        <h3 class="producto-nombre">Espejo Retrovisor BMW Original</h3>
+                        <p class="producto-descripcion">Espejo retrovisor izquierdo.</p>
+                        <div class="producto-precio">$79.99</div>
+                        <button class="btn-agregar-carrito" data-id="bmw008">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bujías -->
+                <div class="producto-card" data-categoria="motor">
+                    <div class="producto-imagen-container">
+                        <img src="https://m.media-amazon.com/images/I/41Av20LkbiL._AC_SX466_.jpg" 
+                             alt="Bujías BMW" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">BMW</div>
+                        <h3 class="producto-nombre">Bujías Iridium BMW</h3>
+                        <p class="producto-descripcion">Juego de 4 bujías iridium para mejor combustión.</p>
+                        <div class="producto-precio">$49.99</div>
+                        <button class="btn-agregar-carrito" data-id="bmw009">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filtro de Aire -->
+                <div class="producto-card" data-categoria="motor">
+                    <div class="producto-imagen-container">
+                        <img src="https://i.ebayimg.com/images/g/MfUAAeSwtmdpF6ZR/s-l1600.webp" 
+                             alt="Filtro de Aire BMW" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">BMW</div>
+                        <h3 class="producto-nombre">Filtro de Aire Deportivo BMW</h3>
+                        <p class="producto-descripcion">Filtro de aire de alto flujo para mejor rendimiento.</p>
+                        <div class="producto-precio">$64.99</div>
+                        <button class="btn-agregar-carrito" data-id="bmw010">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Productos Honda -->
+        <section class="marca-section" id="honda">
+            <h2 class="marca-title">
+                <i class="fas fa-motorcycle"></i>
+                Repuestos para Honda
+            </h2>
+            <div class="productos-grid">
+                
+                <div class="producto-card" data-categoria="motor">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Filtro de Aire Honda" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">HONDA</div>
+                        <h3 class="producto-nombre">Filtro de Aire Honda CBR600RR</h3>
+                        <p class="producto-descripcion">Filtro de aire deportivo de alto flujo para mejor rendimiento.</p>
+                        <div class="producto-precio">$45.99</div>
+                        <button class="btn-agregar-carrito" data-id="honda001">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="frenos">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1550565118-3a14e8d0386f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Pastillas Honda" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">HONDA</div>
+                        <h3 class="producto-nombre">Pastillas de Freno Honda CB500</h3>
+                        <p class="producto-descripcion">Pastillas orgánicas para frenado suave y progresivo.</p>
+                        <div class="producto-precio">$39.99</div>
+                        <button class="btn-agregar-carrito" data-id="honda002">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="suspension">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1580522154071-c6ca47a859ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Amortiguador Honda" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">HONDA</div>
+                        <h3 class="producto-nombre">Amortiguador Trasero Honda CBR1000RR</h3>
+                        <p class="producto-descripcion">Amortiguador deportivo ajustable en precarga y rebote.</p>
+                        <div class="producto-precio">$599.99</div>
+                        <button class="btn-agregar-carrito" data-id="honda003">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="transmision">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1569949381669-ec9738b44374?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Kit Cadena Honda" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">HONDA</div>
+                        <h3 class="producto-nombre">Kit Cadena Honda Africa Twin</h3>
+                        <p class="producto-descripcion">Kit cadena X-ring resistente para aventura.</p>
+                        <div class="producto-precio">$129.99</div>
+                        <button class="btn-agregar-carrito" data-id="honda004">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="electronica">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Batería Honda" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">HONDA</div>
+                        <h3 class="producto-nombre">Batería GEL Honda</h3>
+                        <p class="producto-descripcion">Batería GEL de 12V para motos Honda.</p>
+                        <div class="producto-precio">$89.99</div>
+                        <button class="btn-agregar-carrito" data-id="honda005">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="motor">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Bujías Honda" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">HONDA</div>
+                        <h3 class="producto-nombre">Bujías Honda CRF450L</h3>
+                        <p class="producto-descripcion">Bujías de platino para motos enduro Honda.</p>
+                        <div class="producto-precio">$29.99</div>
+                        <button class="btn-agregar-carrito" data-id="honda006">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Productos Yamaha -->
+        <section class="marca-section" id="yamaha">
+            <h2 class="marca-title">
+                <i class="fas fa-motorcycle"></i>
+                Repuestos para Yamaha
+            </h2>
+            <div class="productos-grid">
+                
+                <div class="producto-card" data-categoria="motor">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Bujías Yamaha" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">YAMAHA</div>
+                        <h3 class="producto-nombre">Bujías Iridium Yamaha R6</h3>
+                        <p class="producto-descripcion">Bujías iridium de alto rendimiento para R6.</p>
+                        <div class="producto-precio">$24.99</div>
+                        <button class="btn-agregar-carrito" data-id="yamaha001">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="suspension">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1580522154071-c6ca47a859ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Horquilla Yamaha" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">YAMAHA</div>
+                        <h3 class="producto-nombre">Kit de Retenes Horquilla Yamaha MT-07</h3>
+                        <p class="producto-descripcion">Kit completo de retenes y aceite para horquilla.</p>
+                        <div class="producto-precio">$59.99</div>
+                        <button class="btn-agregar-carrito" data-id="yamaha002">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="frenos">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1550565118-3a14e8d0386f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Discos Yamaha" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">YAMAHA</div>
+                        <h3 class="producto-nombre">Discos de Freno Yamaha R1</h3>
+                        <p class="producto-descripcion">Discos de freno wave para máxima disipación de calor.</p>
+                        <div class="producto-precio">$299.99</div>
+                        <button class="btn-agregar-carrito" data-id="yamaha003">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="transmision">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1569949381669-ec9738b44374?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Cadena Yamaha" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">YAMAHA</div>
+                        <h3 class="producto-nombre">Kit Transmisión Yamaha MT-09</h3>
+                        <p class="producto-descripcion">Kit completo con cadena, piñón y corona.</p>
+                        <div class="producto-precio">$169.99</div>
+                        <button class="btn-agregar-carrito" data-id="yamaha004">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="electronica">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Regulador Yamaha" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">YAMAHA</div>
+                        <h3 class="producto-nombre">Regulador de Voltaje Yamaha</h3>
+                        <p class="producto-descripcion">Regulador de voltaje para sistema de carga.</p>
+                        <div class="producto-precio">$69.99</div>
+                        <button class="btn-agregar-carrito" data-id="yamaha005">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Productos Suzuki -->
+        <section class="marca-section" id="suzuki">
+            <h2 class="marca-title">
+                <i class="fas fa-motorcycle"></i>
+                Repuestos para Suzuki
+            </h2>
+            <div class="productos-grid">
+                
+                <div class="producto-card" data-categoria="motor">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1569541306245-6fa5c8d48aa8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Embrague Suzuki" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">SUZUKI</div>
+                        <h3 class="producto-nombre">Kit Embrague Suzuki GSX-R1000</h3>
+                        <p class="producto-descripcion">Kit de embrague deportivo para máxima tracción.</p>
+                        <div class="producto-precio">$179.99</div>
+                        <button class="btn-agregar-carrito" data-id="suzuki001">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="frenos">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Pastillas Suzuki" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">SUZUKI</div>
+                        <h3 class="producto-nombre">Pastillas Freno Suzuki Hayabusa</h3>
+                        <p class="producto-descripcion">Pastillas sinterizadas para alta velocidad.</p>
+                        <div class="producto-precio">$79.99</div>
+                        <button class="btn-agregar-carrito" data-id="suzuki002">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="suspension">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1580522154071-c6ca47a859ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Suspensión Suzuki" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">SUZUKI</div>
+                        <h3 class="producto-nombre">Horquilla Suzuki GSX-S750</h3>
+                        <p class="producto-descripcion">Horquilla invertida para mejor estabilidad.</p>
+                        <div class="producto-precio">$449.99</div>
+                        <button class="btn-agregar-carrito" data-id="suzuki003">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="transmision">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1569949381669-ec9738b44374?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Cadena Suzuki" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">SUZUKI</div>
+                        <h3 class="producto-nombre">Kit Cadena Suzuki V-Strom 650</h3>
+                        <p class="producto-descripcion">Kit cadena para motos adventure.</p>
+                        <div class="producto-precio">$119.99</div>
+                        <button class="btn-agregar-carrito" data-id="suzuki004">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Productos Kawasaki -->
+        <section class="marca-section" id="kawasaki">
+            <h2 class="marca-title">
+                <i class="fas fa-motorcycle"></i>
+                Repuestos para Kawasaki
+            </h2>
+            <div class="productos-grid">
+                
+                <div class="producto-card" data-categoria="motor">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Bujías Kawasaki" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">KAWASAKI</div>
+                        <h3 class="producto-nombre">Bujías Kawasaki Ninja ZX-10R</h3>
+                        <p class="producto-descripcion">Bujías de alto rendimiento para motos deportivas.</p>
+                        <div class="producto-precio">$34.99</div>
+                        <button class="btn-agregar-carrito" data-id="kawasaki001">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="transmision">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1569949381669-ec9738b44374?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Cadena Kawasaki" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">KAWASAKI</div>
+                        <h3 class="producto-nombre">Kit Cadena Kawasaki H2</h3>
+                        <p class="producto-descripcion">Cadena de alta resistencia para superdeportivas.</p>
+                        <div class="producto-precio">$199.99</div>
+                        <button class="btn-agregar-carrito" data-id="kawasaki002">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="frenos">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1550565118-3a14e8d0386f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Discos Kawasaki" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">KAWASAKI</div>
+                        <h3 class="producto-nombre">Discos Frenos Kawasaki Z900</h3>
+                        <p class="producto-descripcion">Discos perforados para mejor refrigeración.</p>
+                        <div class="producto-precio">$279.99</div>
+                        <button class="btn-agregar-carrito" data-id="kawasaki003">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="suspension">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1580522154071-c6ca47a859ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Suspensión Kawasaki" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">KAWASAKI</div>
+                        <h3 class="producto-nombre">Amortiguador Kawasaki Versys 650</h3>
+                        <p class="producto-descripcion">Amortiguador para turismo y aventura.</p>
+                        <div class="producto-precio">$399.99</div>
+                        <button class="btn-agregar-carrito" data-id="kawasaki004">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Productos Ducati -->
+        <section class="marca-section" id="ducati">
+            <h2 class="marca-title">
+                <i class="fas fa-motorcycle"></i>
+                Repuestos para Ducati
+            </h2>
+            <div class="productos-grid">
+                
+                <div class="producto-card" data-categoria="frenos">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1550565118-3a14e8d0386f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Discos Ducati" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">DUCATI</div>
+                        <h3 class="producto-nombre">Discos Frenos Ducati Panigale V4</h3>
+                        <p class="producto-descripcion">Discos Brembo de alto rendimiento para pista.</p>
+                        <div class="producto-precio">$399.99</div>
+                        <button class="btn-agregar-carrito" data-id="ducati001">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="suspension">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1580522154071-c6ca47a859ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Suspensión Ducati" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">DUCATI</div>
+                        <h3 class="producto-nombre">Suspensión Öhlins Ducati</h3>
+                        <p class="producto-descripcion">Kit suspensión premium para Ducati Streetfighter.</p>
+                        <div class="producto-precio">$1299.99</div>
+                        <button class="btn-agregar-carrito" data-id="ducati002">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="motor">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1569541306245-6fa5c8d48aa8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Embrague Ducati" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">DUCATI</div>
+                        <h3 class="producto-nombre">Kit Embrague Ducati Monster</h3>
+                        <p class="producto-descripcion">Kit embrague seco para motos naked.</p>
+                        <div class="producto-precio">$229.99</div>
+                        <button class="btn-agregar-carrito" data-id="ducati003">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="transmision">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1569949381669-ec9738b44374?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Cadena Ducati" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">DUCATI</div>
+                        <h3 class="producto-nombre">Kit Cadena Ducati Multistrada</h3>
+                        <p class="producto-descripcion">Cadena reforzada para motos adventure.</p>
+                        <div class="producto-precio">$169.99</div>
+                        <button class="btn-agregar-carrito" data-id="ducati004">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Productos KTM -->
+        <section class="marca-section" id="ktm">
+            <h2 class="marca-title">
+                <i class="fas fa-motorcycle"></i>
+                Repuestos para KTM
+            </h2>
+            <div class="productos-grid">
+                
+                <div class="producto-card" data-categoria="motor">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1569541306245-6fa5c8d48aa8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Embrague KTM" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">KTM</div>
+                        <h3 class="producto-nombre">Kit Embrague KTM 450 EXC</h3>
+                        <p class="producto-descripcion">Kit embrague para enduro y motocross.</p>
+                        <div class="producto-precio">$149.99</div>
+                        <button class="btn-agregar-carrito" data-id="ktm001">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="suspension">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1580522154071-c6ca47a859ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Suspensión KTM" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">KTM</div>
+                        <h3 class="producto-nombre">Horquilla WP KTM 1290</h3>
+                        <p class="producto-descripcion">Horquilla invertida WP para adventure.</p>
+                        <div class="producto-precio">$899.99</div>
+                        <button class="btn-agregar-carrito" data-id="ktm002">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="frenos">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1550565118-3a14e8d0386f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Frenos KTM" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">KTM</div>
+                        <h3 class="producto-nombre">Pastillas Freno KTM 390 Duke</h3>
+                        <p class="producto-descripcion">Pastillas orgánicas para uso urbano.</p>
+                        <div class="producto-precio">$44.99</div>
+                        <button class="btn-agregar-carrito" data-id="ktm003">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="transmision">
+                    <div class="producto-imagen-container">
+                        <img src="https://images.unsplash.com/photo-1569949381669-ec9738b44374?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Cadena KTM" 
+                             class="producto-imagen">
+                        <div class="producto-overlay">
+                            <button class="quick-view">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-marca">KTM</div>
+                        <h3 class="producto-nombre">Kit Cadena KTM 690 Enduro</h3>
+                        <p class="producto-descripcion">Cadena reforzada para enduro extremo.</p>
+                        <div class="producto-precio">$139.99</div>
+                        <button class="btn-agregar-carrito" data-id="ktm004">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal para vista rápida -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-producto">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-content">
+                <!-- Contenido dinámico -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/particulasfondo.js"></script>
+    <script src="js/repuestos.js"></script>
+    <script src="js/cart-global.js"></script>
+    <script src="js/auth-check.js"></script>
+</body>
+
+</html>

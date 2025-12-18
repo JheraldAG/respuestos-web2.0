@@ -1,0 +1,119 @@
+/* ===== VARIABLES FUTURISTAS ===== */
+:root {
+    --primary: #00f3ff;
+    --primary-dark: #00b8c9;
+    --secondary: #6c63ff;
+    --dark-bg: #0a0a0f;
+    --darker-bg: #05050a;
+    --surface: rgba(20, 20, 30, 0.9);
+    --text: #ffffff;
+    --text-secondary: #a0a0c0;
+    --accent: #ff4d8d;
+    --glow: rgba(0, 243, 255, 0.1);
+    --border-glow: rgba(108, 99, 255, 0.3);
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+/* ===== RESET Y ESTILOS BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+    min-height: 100vh;
+    font-family: 'Exo 2', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+/* ===== CONTENIDO PRINCIPAL ===== */
+.main-content {
+    margin-top: 80px;
+    padding: 2rem;
+}
+
+.hero {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--dark-bg);
+    text-decoration: none;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(108, 99, 255, 0.3);
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(108, 99, 255, 0.5);
+}
+
+/* ===== RESPONSIVE PARA CONTENIDO ===== */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+/* ===== ANIMACIONES GENERALES ===== */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}

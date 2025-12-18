@@ -1,0 +1,623 @@
+/* Estilos específicos para la página de repuestos */
+
+.repuestos-container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Filtros por marca */
+.marca-filters {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.marca-filters h2 {
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.filters-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.filter-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Secciones de marca */
+.marca-section {
+    margin-bottom: 4rem;
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.marca-section.active {
+    display: block;
+}
+
+.marca-title {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.marca-title i {
+    color: #667eea;
+}
+
+/* Grid de productos - TODAS LAS TARJETAS DEL MISMO TAMAÑO */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+/* Tarjetas de producto - ALTURA FIJA */
+.producto-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 520px; /* ALTURA FIJA PARA TODAS - Aumentada */
+}
+
+.producto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(102, 126, 234, 0.5);
+}
+
+/* Contenedor de imagen - ALTURA FIJA */
+.producto-imagen-container {
+    position: relative;
+    overflow: hidden;
+    height: 220px; /* ALTURA FIJA PARA IMÁGENES */
+    flex-shrink: 0;
+}
+
+.producto-imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.producto-card:hover .producto-imagen {
+    transform: scale(1.1);
+}
+
+/* Overlay de imagen */
+.producto-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.producto-card:hover .producto-overlay {
+    opacity: 1;
+}
+
+.quick-view {
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.quick-view:hover {
+    transform: scale(1.05);
+}
+
+/* Información del producto - CONTROL DE ALTURA */
+.producto-info {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px; /* Altura mínima para el contenido */
+}
+
+/* NOMBRE DEL PRODUCTO - altura fija */
+.producto-nombre {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    line-height: 1.4;
+    height: 3.4rem; /* Altura fija para 2 líneas */
+    overflow: hidden;
+    display: block;
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* DESCRIPCIÓN - altura controlada */
+.producto-descripcion {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    max-height: 4.5em; /* 3 líneas * 1.5 line-height */
+    display: block;
+    display: -webkit-box;
+
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Fallback para navegadores que no soportan line-clamp */
+.producto-nombre.fallback,
+.producto-descripcion.fallback {
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+
+.producto-nombre.fallback {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.producto-descripcion.fallback {
+    max-height: 4.5em;
+}
+
+.producto-descripcion.fallback::after {
+    content: "...";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-left: 5px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.05) 20%);
+}
+
+.producto-precio {
+    color: #4ade80;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
+}
+
+/* Botón agregar al carrito - SIEMPRE ABAJO */
+.btn-agregar-carrito {
+    width: 100%;
+    padding: 0.8rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    margin-top: auto; /* Esto empuja el botón hacia abajo */
+    flex-shrink: 0;
+}
+
+.btn-agregar-carrito:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-agregar-carrito:active {
+    transform: translateY(0);
+}
+
+/* Ícono del carrito en navbar */
+.cart-icon-container {
+    position: relative;
+    margin-right: 1rem;
+}
+
+.cart-link {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.cart-link:hover {
+    color: #667eea;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ef4444;
+    color: white;
+    font-size: 0.7rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Modal para vista rápida */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-producto {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    animation: modalAppear 0.3s ease;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: #ef4444;
+}
+
+/* Contenido del modal */
+.modal-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.modal-producto-imagen img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-producto-info h2 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.modal-descripcion {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.modal-precio {
+    color: #4ade80;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.modal-agregar-carrito {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.modal-agregar-carrito:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+    transform: translateY(-2px);
+}
+
+.modal-envio {
+    color: #60a5fa;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.modal-garantia {
+    color: #34d399;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Estilos para las notificaciones */
+.notificacion {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    z-index: 1001;
+    animation: slideIn 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .repuestos-container {
+        margin: 1rem auto;
+        padding: 0 0.5rem;
+    }
+
+    .marca-filters {
+        padding: 1rem;
+    }
+
+    .filters-container {
+        gap: 0.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .marca-title {
+        font-size: 1.5rem;
+    }
+
+    .productos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .producto-card {
+        height: 500px;
+    }
+
+    .producto-imagen-container {
+        height: 200px;
+    }
+
+    .producto-info {
+        padding: 1.2rem;
+        min-height: 280px;
+    }
+
+    .producto-nombre {
+        font-size: 1.1rem;
+        height: 3.2rem;
+    }
+
+    .producto-precio {
+        font-size: 1.3rem;
+    }
+
+    .modal-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .modal-producto {
+        padding: 1.5rem;
+    }
+
+    .modal-producto-info h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .productos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .producto-card {
+        height: 480px;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .marca-title {
+        font-size: 1.3rem;
+    }
+
+    .producto-imagen-container {
+        height: 180px;
+    }
+
+    .producto-info {
+        min-height: 260px;
+    }
+
+    .producto-nombre {
+        height: 3rem;
+    }
+    
+    .producto-descripcion {
+        max-height: 4em;
+    }
+}
+
+/* Para pantallas grandes */
+@media (min-width: 1200px) {
+    .productos-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Categorías de productos - Colores diferentes */
+.producto-card[data-categoria="motor"] {
+    border-top: 4px solid #ef4444;
+}
+
+.producto-card[data-categoria="frenos"] {
+    border-top: 4px solid #3b82f6;
+}
+
+.producto-card[data-categoria="suspension"] {
+    border-top: 4px solid #10b981;
+}
+
+.producto-card[data-categoria="transmision"] {
+    border-top: 4px solid #f59e0b;
+}
+
+.producto-card[data-categoria="electronica"] {
+    border-top: 4px solid #8b5cf6;
+}
+
+.producto-card[data-categoria="carroceria"] {
+    border-top: 4px solid #ec4899;
+}
+
+/* Marca específica en el título */
+.producto-marca {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.3rem;
+}

@@ -1,0 +1,823 @@
+/* factura.css - Estilos para la página de factura y pago */
+
+:root {
+    --factura-primary: #3498db;
+    --factura-secondary: #2c3e50;
+    --factura-success: #27ae60;
+    --factura-warning: #f39c12;
+    --factura-danger: #e74c3c;
+    --factura-light: #ecf0f1;
+    --factura-dark: #2c3e50;
+    --factura-border: #bdc3c7;
+}
+
+/* Botón Atrás específico para factura */
+.factura-back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.factura-back:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-3px);
+}
+
+/* Contenedor principal */
+.factura-container {
+    max-width: 1400px;
+    margin: 80px auto 40px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Encabezado */
+.factura-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.factura-header h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.pedido-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 15px;
+}
+
+.pedido-numero {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.pedido-fecha {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Grid principal */
+.factura-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+@media (max-width: 1024px) {
+    .factura-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Detalles del pedido */
+.detalles-pedido, .metodos-pago {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.detalles-pedido h2, .metodos-pago h2 {
+    color: white;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Información del cliente */
+.info-cliente {
+    background: rgba(52, 152, 219, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border-left: 4px solid #3498db;
+}
+
+.info-cliente h3 {
+    color: #3498db;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cliente-datos p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 8px;
+    display: flex;
+    gap: 10px;
+}
+
+.cliente-datos strong {
+    color: #3498db;
+    min-width: 100px;
+}
+
+/* Productos en factura */
+.productos-factura {
+    margin-bottom: 25px;
+}
+
+.productos-lista {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 15px;
+}
+
+.producto-factura-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.producto-factura-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.producto-factura-imagen {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.producto-factura-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.producto-factura-nombre {
+    color: white;
+    font-weight: 500;
+    flex: 1;
+}
+
+.producto-factura-detalle {
+    text-align: right;
+    min-width: 120px;
+}
+
+.producto-factura-cantidad {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.producto-factura-subtotal {
+    color: #2ecc71;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Resumen factura */
+.resumen-factura {
+    background: rgba(46, 204, 113, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #27ae60;
+}
+
+.resumen-factura h3 {
+    color: #27ae60;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.resumen-detalles {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.resumen-fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.resumen-fila span:first-child {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.resumen-fila span:last-child {
+    font-weight: 500;
+}
+
+.total-fila {
+    border-top: 2px solid #27ae60;
+    border-bottom: none;
+    padding-top: 20px;
+    margin-top: 10px;
+}
+
+.total-fila span {
+    color: white;
+    font-size: 1.3rem;
+}
+
+.envio-fila {
+    background: rgba(52, 152, 219, 0.1);
+    padding: 10px;
+    border-radius: 6px;
+}
+
+/* Métodos de pago */
+.metodo-pago {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.metodo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.metodo-header:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.metodo-header i {
+    font-size: 1.5rem;
+    color: #3498db;
+    width: 30px;
+}
+
+.metodo-header h3 {
+    color: white;
+    flex: 1;
+    margin: 0 15px;
+    font-size: 1.2rem;
+}
+
+/* Switch para selección */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+    background-color: #27ae60;
+}
+
+.switch input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+/* Contenido de métodos de pago */
+.metodo-contenido {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.metodo-contenido.active {
+    padding: 25px;
+    max-height: 1000px;
+}
+
+/* Formulario tarjeta */
+.tarjeta-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-group input {
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.tarjeta-doble {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.tarjetas-aceptadas {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.tarjetas-aceptadas p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tarjetas-iconos {
+    display: flex;
+    gap: 15px;
+    font-size: 2rem;
+}
+
+.tarjetas-iconos i {
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s ease;
+}
+
+.tarjetas-iconos i:hover {
+    color: white;
+}
+
+/* QR */
+.qr-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+#qrCode {
+    width: 250px;
+    height: 250px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-instructions {
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.qr-info {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.qr-info h4 {
+    color: white;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.qr-info ol {
+    color: rgba(255, 255, 255, 0.8);
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.qr-info li {
+    margin-bottom: 8px;
+}
+
+.qr-bancos {
+    margin-top: 20px;
+}
+
+.qr-bancos p {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.bancos-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.bancos-lista span {
+    background: rgba(52, 152, 219, 0.2);
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: #3498db;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Botones de acción */
+.factura-acciones {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-principal, .btn-secundario {
+    flex: 1;
+    padding: 16px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-principal {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-principal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secundario {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secundario:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Seguridad */
+.factura-seguridad {
+    margin-top: 25px;
+    padding: 20px;
+    background: rgba(46, 204, 113, 0.1);
+    border-radius: 10px;
+    border-left: 4px solid #27ae60;
+}
+
+.factura-seguridad p {
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.seguridad-info {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 10px !important;
+}
+
+/* Modal de procesamiento */
+.modal-procesando {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 20, 0.95);
+    backdrop-filter: blur(10px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal-procesando.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-contenido {
+    background: rgba(20, 20, 40, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.procesando-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.procesando-header h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.procesando-header p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+}
+
+/* Animación de moto */
+.procesando-animacion {
+    margin: 40px 0;
+}
+
+.carretera {
+    position: relative;
+    height: 100px;
+    background: linear-gradient(to bottom, #333, #222);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.moto-animada {
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    color: #e74c3c;
+    animation: moverMoto 4s linear forwards;
+}
+
+@keyframes moverMoto {
+    0% {
+        left: -50px;
+        transform: translateY(-50%) scale(1);
+    }
+    90% {
+        left: calc(100% - 50px);
+        transform: translateY(-50%) scale(1);
+    }
+    100% {
+        left: calc(100% - 50px);
+        transform: translateY(-50%) scale(0);
+        opacity: 0;
+    }
+}
+
+.lineas-carretera {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: repeating-linear-gradient(
+        to right,
+        transparent,
+        transparent 20px,
+        #f1c40f 20px,
+        #f1c40f 40px
+    );
+    animation: moverLineas 1s linear infinite;
+}
+
+@keyframes moverLineas {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-40px);
+    }
+}
+
+/* Barra de progreso */
+.progreso-container {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progreso-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #3498db, #2ecc71);
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 4px;
+}
+
+.progreso-texto {
+    text-align: center;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.procesando-info {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.procesando-info p {
+    color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .factura-container {
+        margin: 70px 15px 30px;
+        padding: 15px;
+    }
+    
+    .factura-header h1 {
+        font-size: 2rem;
+    }
+    
+    .pedido-info {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .tarjeta-doble {
+        grid-template-columns: 1fr;
+    }
+    
+    .factura-acciones {
+        flex-direction: column;
+    }
+    
+    .metodo-header {
+        padding: 15px;
+    }
+    
+    .metodo-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    #qrCode {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .factura-grid {
+        gap: 20px;
+    }
+    
+    .detalles-pedido, .metodos-pago {
+        padding: 15px;
+    }
+    
+    .producto-factura-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .producto-factura-detalle {
+        text-align: left;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .modal-contenido {
+        padding: 25px;
+    }
+}

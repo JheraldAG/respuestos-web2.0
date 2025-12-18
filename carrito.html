@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras | RespuestosWeb</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/particulasfondo.css">
+    <link rel="stylesheet" href="css/carrito.css">
+    <link rel="stylesheet" href="css/carrito-modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilos adicionales para el modal - ORDEN CORRECTO */
+        .m-resumen-fila-descuento {
+            background: rgba(46, 204, 113, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            margin: 5px 0;
+            border-left: 3px solid #27ae60;
+            display: none;
+        }
+
+        .m-resumen-fila-descuento.visible {
+            display: flex;
+        }
+
+        .m-resumen-fila-descuento span {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .m-resumen-fila-modal i {
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .m-resumen-total-modal {
+            border-top: 2px solid #3498db;
+            margin-top: 15px;
+            padding-top: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* Estilo para envío gratis */
+        .m-envio-gratis {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            margin: 5px 0;
+            border-left: 3px solid #3498db;
+        }
+
+        .m-envio-gratis span {
+            color: #3498db;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <!-- Menú de navegación -->
+            <div class="navbar-logo">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-icon">⚙️</span>
+                    <span class="logo-text">RespuestosWeb</span>
+                </a>
+            </div>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="repuestos.html" class="nav-link">Respuestos</a></li>
+                <li><a href="accesorios.html" class="nav-link">Accesorios</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+            <!-- Botones de acción -->
+            <div class="navbar-actions" id="navbarActions">
+                <div class="cart-icon-container">
+                    <a href="carrito.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </div>
+                <!-- Esto se mostrará cuando NO haya sesión iniciada -->
+                <div class="auth-buttons" id="authButtons">
+                    <button class="btn btn-login" onclick="window.location.href='sesion.html'">Iniciar Sesión</button>
+                    <button class="btn btn-signup" onclick="window.location.href='registro.html'">Registrarse</button>
+                </div>
+                <!-- Esto se mostrará cuando HAYA sesión iniciada -->
+                <div class="user-info" id="userInfo" style="display: none;">
+                    <span class="user-name" id="userName"></span>
+                    <button class="btn btn-logout" id="btnLogout">
+                        <span class="logout-icon">🚪</span>
+                        Exit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal del carrito -->
+    <main class="carrito-container">
+        <div class="carrito-header">
+            <h1 class="carrito-title">
+                <i class="fas fa-shopping-cart"></i>
+                Mi Carrito de Compras
+            </h1>
+            <div class="carrito-estado" id="carritoEstado">
+                <span id="totalItems">0 productos</span>
+            </div>
+        </div>
+
+        <!-- Carrito vacío -->
+        <div class="carrito-vacio" id="carritoVacio">
+            <i class="fas fa-shopping-cart"></i>
+            <h2>Tu carrito está vacío</h2>
+            <p>Agrega productos desde nuestro catálogo para comenzar tu compra</p>
+            <a href="repuestos.html" class="btn-volver">
+                <i class="fas fa-motorcycle"></i> Ver Repuestos
+            </a>
+        </div>
+
+        <!-- Carrito con productos -->
+        <div class="carrito-contenido" id="carritoContenido">
+            <!-- Lista de productos -->
+            <div class="carrito-items" id="carritoItems">
+                <!-- Los productos se cargarán dinámicamente aquí -->
+            </div>
+
+            <!-- Resumen de compra -->
+            <div class="carrito-resumen">
+                <h3 class="resumen-titulo">Resumen de tu compra</h3>
+
+                <div class="resumen-detalle">
+                    <div class="resumen-fila">
+                        <span class="resumen-etiqueta">Subtotal:</span>
+                        <span class="resumen-valor" id="subtotal">$0.00</span>
+                    </div>
+                    <div class="resumen-fila" id="filaDescuentoResumen" style="display: none;">
+                        <span class="resumen-etiqueta">Descuento (10%):</span>
+                        <span class="resumen-valor" id="descuento" style="color: #27ae60;">$0.00</span>
+                    </div>
+                    <div class="resumen-fila"
+                        style="background: rgba(52, 152, 219, 0.1); padding: 10px; border-radius: 5px;">
+                        <span class="resumen-etiqueta" style="color: #3498db;">
+                            <i class="fas fa-shipping-fast"></i> Envío:
+                        </span>
+                        <span class="resumen-valor" style="color: #27ae60; font-weight: bold;">GRATIS</span>
+                    </div>
+                </div>
+
+                <div class="resumen-total">
+                    <span>Total:</span>
+                    <span id="totalCompra">$0.00</span>
+                </div>
+
+                <div class="carrito-acciones">
+                    <button class="btn-vaciar" id="btnVaciarCarrito">
+                        <i class="fas fa-trash"></i> Vaciar Carrito
+                    </button>
+                    <button class="btn-pagar" id="btnPagar">
+                        <i class="fas fa-lock"></i> Proceder al Pago
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="m-modal-pago" id="mModalPago">
+    <!-- Notificaciones -->
+    <div id="mNotificacionesContainer"></div>
+
+    <script src="js/particulasfondo.js"></script>
+    <script src="js/cart-global.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="js/auth-check.js"></script>
+
+    <script>
+        // Script para manejar la sesión de usuario
+        // Script para manejar la sesión de usuario - VERSIÓN MEJORADA
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log("Navbar script cargado");
+
+            // Verificar sesión de usuario
+            function checkUserSession() {
+                console.log("Verificando sesión...");
+
+                const authButtons = document.getElementById('authButtons');
+                const userInfo = document.getElementById('userInfo');
+                const userName = document.getElementById('userName');
+                const btnLogout = document.getElementById('btnLogout');
+
+                // Intentar obtener usuario de DIFERENTES formatos
+                let user = null;
+
+                // 1. Intentar con el formato antiguo (clave: 'user')
+                try {
+                    user = JSON.parse(localStorage.getItem('user'));
+                    console.log("Usuario encontrado en 'user':", user);
+                } catch (e) {
+                    console.log("No hay usuario en formato 'user'");
+                }
+
+                // 2. Si no hay en formato antiguo, buscar en formato nuevo
+                if (!user || !user.loggedIn) {
+                    try {
+                        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                        if (currentUser) {
+                            user = {
+                                name: currentUser.name,
+                                email: currentUser.email,
+                                loggedIn: localStorage.getItem('isLoggedIn') === 'true'
+                            };
+                            console.log("Usuario encontrado en formato nuevo:", user);
+                        }
+                    } catch (e) {
+                        console.log("No hay usuario en formato nuevo");
+                    }
+                }
+
+                console.log("Usuario final para navbar:", user);
+
+                if (user && user.loggedIn && authButtons && userInfo) {
+                    // Usuario logueado
+                    console.log("Mostrando información de usuario logueado");
+                    authButtons.style.display = 'none';
+                    userInfo.style.display = 'flex';
+                    if (userName) {
+                        // Mostrar solo el primer nombre
+                        const firstName = user.name.split(' ')[0];
+                        userName.textContent = firstName || user.email.split('@')[0];
+                    }
+                } else if (authButtons && userInfo) {
+                    // Usuario no logueado
+                    console.log("Mostrando botones de autenticación");
+                    authButtons.style.display = 'flex';
+                    userInfo.style.display = 'none';
+                }
+
+                // Evento para cerrar sesión
+                if (btnLogout) {
+                    btnLogout.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        console.log("Cerrando sesión...");
+
+                        // Limpiar TODOS los formatos de usuario
+                        localStorage.removeItem('user');
+                        localStorage.removeItem('currentUser');
+                        localStorage.removeItem('isLoggedIn');
+                        localStorage.removeItem('repuestos_currentUser');
+                        localStorage.removeItem('repuestos_isLoggedIn');
+
+                        // Redirigir a la página principal
+                        window.location.href = 'index.html';
+                    });
+                }
+            }
+
+            // Función para forzar actualización del navbar
+            window.updateNavbar = function () {
+                checkUserSession();
+            };
+
+            // Escuchar eventos de cambio de autenticación
+            window.addEventListener('storage', function (e) {
+                if (e.key === 'user' || e.key === 'currentUser' || e.key === 'isLoggedIn') {
+                    console.log("Cambio detectado en localStorage, actualizando navbar...");
+                    checkUserSession();
+                }
+            });
+
+            // También escuchar eventos personalizados
+            window.addEventListener('authStateChanged', function () {
+                console.log("Evento authStateChanged recibido, actualizando navbar...");
+                checkUserSession();
+            });
+
+            // Verificar al cargar
+            checkUserSession();
+
+            // Verificar cada 2 segundos (solo para desarrollo)
+            if (window.location.href.includes('localhost') || window.location.href.includes('127.0.0.1')) {
+                setInterval(checkUserSession, 2000);
+            }
+        });
+
+
+
+
+        // Función para guardar compra pendiente y redirigir a login
+        function savePendingPurchaseAndRedirect() {
+            // Guardar datos actuales del carrito como compra pendiente
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            if (carrito.length > 0) {
+                const purchaseData = {
+                    carrito: carrito,
+                    subtotal: calcularSubtotal(),
+                    totalProductos: carrito.reduce((total, item) => total + item.cantidad, 0),
+                    timestamp: new Date().toISOString()
+                };
+
+                if (window.sessionManager) {
+                    window.sessionManager.setPendingPurchase(purchaseData);
+                } else {
+                    localStorage.setItem('pendingPurchase', JSON.stringify(purchaseData));
+                }
+
+                console.log("Compra pendiente guardada antes de ir a login");
+            }
+
+            // Redirigir a login
+            window.location.href = 'sesion.html?redirect=carrito.html';
+        }
+
+        // Función para guardar compra pendiente y redirigir a registro
+        function savePendingPurchaseAndRedirectToRegister() {
+            // Guardar datos actuales del carrito como compra pendiente
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            if (carrito.length > 0) {
+                const purchaseData = {
+                    carrito: carrito,
+                    subtotal: calcularSubtotal(),
+                    totalProductos: carrito.reduce((total, item) => total + item.cantidad, 0),
+                    timestamp: new Date().toISOString()
+                };
+
+                if (window.sessionManager) {
+                    window.sessionManager.setPendingPurchase(purchaseData);
+                } else {
+                    localStorage.setItem('pendingPurchase', JSON.stringify(purchaseData));
+                }
+
+                console.log("Compra pendiente guardada antes de ir a registro");
+            }
+
+            // Redirigir a registro
+            window.location.href = 'registro.html';
+        }
+
+        // Función para calcular subtotal (debe existir en carrito.js)
+        function calcularSubtotal() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            let subtotal = 0;
+            carrito.forEach(item => {
+                subtotal += item.precio * item.cantidad;
+            });
+            return subtotal;
+        }
+    </script>
+</body>
+
+</html>

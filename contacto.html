@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | RespuestosWeb</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/particulasfondo.css">
+    <link rel="stylesheet" href="css/contacto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <!-- Menú de navegación -->
+            <div class="navbar-logo">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-icon">⚙️</span>
+                    <span class="logo-text">RespuestosWeb</span>
+                </a>
+            </div>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="repuestos.html" class="nav-link">Repuestos</a></li>
+                <li><a href="accesorios.html" class="nav-link">Accesorios</a></li>
+                <li><a href="contacto.html" class="nav-link active">Contacto</a></li>
+            </ul>
+            <!-- Botones de acción -->
+            <div class="navbar-actions" id="navbarActions">
+                <div class="cart-icon-container">
+                    <a href="carrito.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </div>
+                <!-- Esto se mostrará cuando NO haya sesión iniciada -->
+                <div class="auth-buttons" id="authButtons">
+                    <button class="btn btn-login" onclick="window.location.href='sesion.html'">Iniciar Sesión</button>
+                    <button class="btn btn-signup" onclick="window.location.href='registro.html'">Registrarse</button>
+                </div>
+                <!-- Esto se mostrará cuando HAYA sesión iniciada -->
+                <div class="user-info" id="userInfo" style="display: none;">
+                    <span class="user-name" id="userName"></span>
+                    <button class="btn btn-logout" id="btnLogout">
+                        <span class="logout-icon">🚪</span>
+                        Exit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="contacto-container">
+        <div class="contacto-header">
+            <h1 class="contacto-title">
+                <i class="fas fa-envelope"></i>
+                Contáctanos
+            </h1>
+            <p class="contacto-subtitle">¿Tienes dudas? Estamos aquí para ayudarte</p>
+        </div>
+
+        <div class="contacto-grid">
+            <!-- Información de contacto -->
+            <div class="info-contacto">
+                <h2><i class="fas fa-info-circle"></i> Información de Contacto</h2>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Teléfono</h3>
+                        <p>+591 78570322</p>
+                        <p class="info-horario">Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Email</h3>
+                        <p>wgarridomontano@gmail.com</p>
+                        <p class="info-horario">Respuesta en menos de 24 horas</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Dirección</h3>
+                        <p>3er anillo externo Av. alemana</p>
+                       
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Horario de Atención</h3>
+                        <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+                        <p>Sábados: 10:00 AM - 2:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario de contacto -->
+            <div class="formulario-contacto">
+                <h2><i class="fas fa-paper-plane"></i> Envíanos un mensaje</h2>
+                
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="nombre">
+                            <i class="fas fa-user"></i> Nombre completo
+                        </label>
+                        <input type="text" id="nombre" placeholder="Ingresa tu nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">
+                            <i class="fas fa-envelope"></i> Correo electrónico
+                        </label>
+                        <input type="email" id="email" placeholder="ejemplo@gmail.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">
+                            <i class="fas fa-phone"></i> Teléfono
+                        </label>
+                        <input type="tel" id="telefono" placeholder="+591 00000000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="asunto">
+                            <i class="fas fa-tag"></i> Asunto
+                        </label>
+                        <select id="asunto" required>
+                            <option value="" disabled selected>Selecciona un asunto</option>
+                            <option value="consulta">Consulta general</option>
+                            <option value="pedido">Estado de pedido</option>
+                            <option value="producto">Información de producto</option>
+                            <option value="garantia">Garantía</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">
+                            <i class="fas fa-comment"></i> Mensaje
+                        </label>
+                        <textarea id="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-enviar">
+                        <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Mapa (opcional) -->
+        <div class="mapa-container">
+            <h2><i class="fas fa-map"></i> Nuestra Ubicación</h2>
+            <div class="mapa-placeholder">
+                <div class="mapa-mock">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>3er anillo externo Av. alemana</p>
+                    <div class="mapa-coords">
+                        <span>0000000</span>
+                        <span>0000000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>RespuestosWeb</h3>
+                <p>Tu tienda confiable de repuestos para motos</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto Rápido</h3>
+                <p><i class="fas fa-phone"></i> +591 78570322</p>
+                <p><i class="fas fa-envelope"></i> wgarridomontano@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces</h3>
+                <a href="index.html">Inicio</a>
+                <a href="repuestos.html">Repuestos</a>
+                <a href="accesorios.html">Accesorios</a>
+            </div>
+        </div>
+        <p class="footer-copyright">&copy; 2025 RespuestosWeb. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/particulasfondo.js"></script>
+    <script src="js/cart-global.js"></script>
+    <script src="js/auth-check.js"></script>
+    <script src="js/session-manager.js"></script>
+    <script src="js/contacto.js"></script>
+    
+</body>
+
+
+</html>
+
