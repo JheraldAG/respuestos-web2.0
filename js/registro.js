@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ===================================================================
-    // 4. FUNCIÓN PRINCIPAL DE REGISTRO - ¡CORREGIDA!
+    // 4. FUNCIÓN PRINCIPAL DE REGISTRO 
     // ===================================================================
     
     async function handleRegistration(e) {
@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', function () {
             email: emailInput.value.trim().toLowerCase(),
             phone: phoneInput.value.trim(),
             address: addressInput.value.trim(),
-            password: passwordInput.value, // En una app real, esto debería estar encriptado
+            password: passwordInput.value, 
             createdAt: new Date().toISOString(),
             newsletter: newsletterCheckbox.checked,
             role: 'customer',
@@ -372,7 +372,7 @@ document.addEventListener('DOMContentLoaded', function () {
         existingUsers.push(user);
         localStorage.setItem('allUsers', JSON.stringify(existingUsers));
         
-        // 6.2 Guardar usuario actual (formato que usa tu navbar)
+        // 6.2 Guardar usuario actual 
         const userForNavbar = {
             name: user.name,
             email: user.email,
@@ -530,3 +530,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
     console.log("=== FORMULARIO DE REGISTRO CONFIGURADO CORRECTAMENTE ===");
 });
+
